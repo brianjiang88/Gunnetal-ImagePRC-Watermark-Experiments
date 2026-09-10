@@ -248,6 +248,23 @@ def experiment(dimensions=10,
 
 if __name__ == "__main__":
     # allow user to specify all these parameters from the command line, with default values
+    """
+    Run the experiment with specified parameters.
+    --dimensions: Dimension of the GMM (default: 10)
+    --num_components: Number of components in the GMM (default: 3)
+    --num_diffusion_steps: Number of diffusion steps (default: 1000)
+    --num_training_samples: Number of training samples (default: 10000)
+    --num_trials: Number of trials for sampling and recovery (default: 1000)
+    --num_experiment_repetitions: Number of repetitions of the experiment (default: 10)
+    --cov_type: Type of covariance for the GMM (default: ISOTROPIC, choices: ISOTROPIC, HETEROSCEDASTIC, PSD)
+        - ISOTROPIC: each component has a covariance matrix of the form sigma^2 * I for some sigma^2 > 0
+        - HETEROSCEDASTIC: each component has a covariance matrix of the form diag(sigma_1^2, ..., sigma_d^2) for some sigma_i^2 > 0
+        - PSD: each component has a covariance matrix that is PSD, i.e., of the form G * G^T for some matrix G
+    --path: Path to save results (default: "results"), subfolder will be created based on the covariance type (e.g., "results/isotropic", "results/heteroscedastic", "results/psd")
+
+    To run the experiment, use the following command in the terminal:
+        python src/experiment.py --{parameter_name} {value} ...
+    """
     import argparse
 
     parser = argparse.ArgumentParser()
