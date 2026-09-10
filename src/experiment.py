@@ -268,5 +268,5 @@ if __name__ == "__main__":
         num_trials=args.num_trials,
         num_experiment_repetitions=args.num_experiment_repetitions,
         cov_type=gmm_diffusion.CovarianceType[args.cov_type],
-        path=f"{args.path}/covariance_{args.cov_type.lower()}"
+        path=f"{args.path}/{args.cov_type.lower()}"
     )
